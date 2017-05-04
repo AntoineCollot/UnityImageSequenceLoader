@@ -28,7 +28,7 @@ public class ImageSequenceLoader : MonoBehaviour {
     /// Name of the gameobject that has this component in the scene
     /// </summary>
     [SerializeField]
-    string gameObjectName;
+    GameObject gameObject;
 
     /// <summary>
     /// Name of the variable that should contain the image sequence
@@ -53,13 +53,10 @@ public class ImageSequenceLoader : MonoBehaviour {
         //Tell the user that we started loading
         print("Loading images...");
 
-        //Try to find the gameobject the user is looking for
-        GameObject gameObject = GameObject.Find(gameObjectName);
-
         //If we couldn't find it, notify the user and stop
         if(gameObject==null)
         {
-            print("Failed : Couldn't find the GameObject " + gameObjectName + " in scene.");
+            print("Failed : No gameobject");
             return;
         }
 
